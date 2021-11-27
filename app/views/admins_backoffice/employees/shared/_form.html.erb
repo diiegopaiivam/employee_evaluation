@@ -1,6 +1,19 @@
 <div role="main">
     <div class="clearfix"></div>
     <div class="row">
+
+        <% if @employee.errors.any? %>
+            <div class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert"
+                aria-hidden="true">×</button>
+                <ul>
+                    <% @employee.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                    <% end %>
+                </ul>
+            </div>
+        <% end %>
+
         <div class="col-md-12">
             <div class="x_panel">
                 <div class="x_title">
@@ -15,21 +28,19 @@
                 </div>
                 <div class="x_content">
                     <br />
-                    <%= form_with(model: [ :admins_backoffice, @emplyee  ], local: true, class:"form-horizontal form-label-left") do |form|  %>
+                    <%= form_with(model: [ :admins_backoffice, @employee  ], local: true, class:"form-horizontal form-label-left") do |form|  %>
                         <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nome Completo<span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 ">
-                                <input type="text" id="first-name" required="required" class="form-control ">
+                            <%= form.label :name, :class => "col-form-label col-md-3 col-sm-3 label-align"%>
+                            <div class="col-md-6 col-sm-6">
+                                <%= form.text_field :name, :class => "form-control", :placeholder => "Nome Completo" %>
                             </div>
-                        </div>
+                        </div>   
                         <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Cargo<span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 ">
-                                <input type="text" id="last-name" name="last-name" required="required" class="form-control">
+                            <%= form.label :office, :class => "col-form-label col-md-3 col-sm-3 label-align"%>
+                            <div class="col-md-6 col-sm-6">
+                                <%= form.text_field :office, :class => "form-control", :placeholder => "Cargo" %>
                             </div>
-                        </div>
+                        </div>   
                         <div class="ln_solid"></div>
                         <div class="item form-group">
                             <div class="col-md-6 col-sm-6 offset-md-3">

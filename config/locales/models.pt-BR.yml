@@ -15,4 +15,8 @@
         cpf: CPF
         created_at: Criado em
         updated_at: Atualizado em
+      employee: 
+        id: Código
+        name: Nome Completo
+        office: Cargo
 

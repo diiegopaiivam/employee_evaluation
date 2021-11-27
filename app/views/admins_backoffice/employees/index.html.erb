@@ -33,27 +33,25 @@
                 <th>Ações</th>
             </tr>
             </thead>
-
-
             <tbody>
-            <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011/04/25</td>
-                <td>$320,800</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-                <td>2011/07/25</td>
-                <td>$170,750</td>
-                <td>-</td>
-            </tr>
+            <% @employees.each do |employee|%>
+                <tr>
+                    <td><%= employee.name %> </td>
+                    <td><%= employee.office %></td>
+                    <td>Edinburgh</td>
+                    <td>61</td>
+                    <td>2011/04/25</td>
+                    <td>$320,800</td>
+                    <td>
+                        <%= link_to edit_admins_backoffice_employee_path(employee) do %>
+                            <i class="fa fa-edit"></i>
+                        <% end %>
+                        <%= link_to admins_backoffice_employee_path(employee), method: :delete, data: { confirm: "Deseja realmente excluír colaborador" } do %>
+                            <i class="fa fa-trash"></i>
+                        <% end %>
+                    </td>
+                </tr>
+            <% end %>
             </tbody>
         </table>
         </div>
