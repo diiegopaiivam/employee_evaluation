@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_02_223405) do
+ActiveRecord::Schema.define(version: 2021_11_27_182700) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -34,4 +34,21 @@ ActiveRecord::Schema.define(version: 2021_11_02_223405) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "evaluation_companies", force: :cascade do |t|
+    t.integer "grades"
+    t.string "comments"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "evaluation_employees", force: :cascade do |t|
+    t.integer "grades"
+    t.string "comments"
+    t.integer "employee_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["employee_id"], name: "index_evaluation_employees_on_employee_id"
+  end
+
+  add_foreign_key "evaluation_employees", "employees"
 end
