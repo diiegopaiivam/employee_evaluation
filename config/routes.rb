@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   get 'evaluation/new'
   get 'evaluation/create'
+  get 'evaluation/index'
   namespace :admins_backoffice do
     get 'welcome/index' ##Dashbooard
     resources :admins
@@ -13,6 +14,6 @@ Rails.application.routes.draw do
   end
 
   get 'admin', to: 'admins_backoffice/welcome#index'
-  root to: 'evaluation#new'
+  root to: 'evaluation#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

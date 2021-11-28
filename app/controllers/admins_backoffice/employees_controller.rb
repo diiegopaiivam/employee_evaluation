@@ -49,6 +49,6 @@ class AdminsBackoffice::EmployeesController < AdminsBackofficeController
         end 
 
         def employee_params
-            params.require(:employee).permit(:name, :office)
+            params.require(:employee).permit(:name, :office, :avatar)
         end 
 end

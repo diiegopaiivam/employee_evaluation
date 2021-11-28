@@ -17,7 +17,7 @@
         <div class="col-md-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Cadastrar Colaborador</h2>
+                    <h2><%= action_message %></h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -41,10 +41,17 @@
                                 <%= form.text_field :office, :class => "form-control", :placeholder => "Cargo" %>
                             </div>
                         </div>   
+                        <div class="item form-group">
+                            <div class="col-md-6 col-sm-6" style="margin: 0 auto">                        
+                                <a class="btn" title="Insert picture (or just drag & drop)" id="pictureBtn"><i class="fa fa-picture-o"></i></a>
+                                <%= form.file_field :avatar, :"data-role"=> "magic-overlay", :"data-target" => "#pictureBtn", :"data-edit" => "insertImage" %>
+                                <!--<input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" name="employee[avatar]" id="employee_avatar" />        -->           
+                            </div>
+                        </div>
                         <div class="ln_solid"></div>
                         <div class="item form-group">
                             <div class="col-md-6 col-sm-6 offset-md-3">
-                                <button type="submit" class="btn btn-success">Cadastrar</button>
+                                <button type="submit" class="btn btn-success">Salvar</button>
                             </div>
                         </div>
                     <% end %>

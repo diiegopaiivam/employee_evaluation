@@ -1,0 +1,26 @@
+<div class="modal fade" id="evaluationEmployee" tabindex="-1" role="dialog" aria-labelledby="evaluationEmployeeLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="evaluationEmployeeLabel">
+            Avalie
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= simple_form_for evaluation, html: { multipart: true } do |f| %>
+      <div class="modal-body">
+        <%= f.input :login, input_html: { 
+          readonly: true,
+          value: current_user.login
+        } %>
+        <%= f.input :senha, input_html: { type: :password } %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <%= f.button :submit, title: 'Assinar Formulário e Enviar' %>
+      </div>
+    </div>
+  </div>
+</div>
