@@ -38,10 +38,10 @@
                 <tr>
                     <td><%= employee.name %> </td>
                     <td><%= employee.office %></td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                    <td>2011/04/25</td>
-                    <td>$320,800</td>
+                    <td><%= employee.evaluation_employees.size %></td>
+                    <td><%= employee.evaluation_employees.where("grades > 6").size %></td>
+                    <td><%= employee.evaluation_employees.where("grades < 6").size %></td>
+                    <td><%= employee.evaluation_employees.size %></td>
                     <td>
                         <%= link_to edit_admins_backoffice_employee_path(employee) do %>
                             <i class="fa fa-edit"></i>

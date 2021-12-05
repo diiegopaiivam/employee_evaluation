@@ -1,5 +1,5 @@
 class Employee < ApplicationRecord
-    has_many :evaluation_employees
+    has_many :evaluation_employees, dependent: :delete_all
 
     mount_uploader :avatar, AvatarUploader
     

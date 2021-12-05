@@ -1,5 +1,5 @@
 class AdminsBackoffice::EmployeesController < AdminsBackofficeController
-    before_action :set_employee, only: [:show, :edit, :update, :destroy]
+    before_action :set_employee, only: [:show, :edit, :update, :destroy, :show_modal]
 
     def index
         @employees = Employee.all
@@ -39,8 +39,6 @@ class AdminsBackoffice::EmployeesController < AdminsBackofficeController
           render :index 
         end
     end
-
-
 
     private 
 

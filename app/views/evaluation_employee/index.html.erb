@@ -24,7 +24,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title"><%= employee.name %></h5>
                                     <p class="card-text"><%= employee.office %></p>
-                                    <a href="#" class="btn btn-primary">Avaliar</a>
+                                    <%= link_to 'Avaliar', show_modal_path(employee), :remote => true, :class => "btn btn-primary", 'data-toogle' => "modal", 'data-target' => "#evaluationEmployee" %>
                                 </div>
                             </div>
                         <% end %>
@@ -39,3 +39,35 @@
     </div>
     <!-- /.row -->
 </div>
+
+<!-- MODAL -->
+<div class="modal fade" id="evaluationEmployee" tabindex="-1" role="dialog" aria-labelledby="evaluationEmployeeLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
+
+<!-- jQuery -->
+<script src="/templates/startbootstrap-sb-admin-2/vendor/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/templates/startbootstrap-sb-admin-2/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="/templates/startbootstrap-sb-admin-2/vendor/metisMenu/metisMenu.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/templates/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js"></script>
+
+<!-- Page-Level Demo Scripts - Notifications - Use for reference -->
+<script>
+// tooltip demo
+$('.tooltip-demo').tooltip({
+    selector: "[data-toggle=tooltip]",
+    container: "body"
+})
+// popover demo
+$("[data-toggle=popover]")
+    .popover()
+</script>
